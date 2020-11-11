@@ -4,7 +4,7 @@
 
 **404**
 
-页面级的错误处理基于 `react-router` 自定义的 `umiRoutes` 与`getNotFoundRoute` 方法，统一处理，所有匹配不到正确路由的页面都会进 `404`页面。
+页面级的错误处理是基于 `react-router`基础上项目自定义方法： `umiRoutes` 与`getNotFoundRoute` 统一处理，所有匹配不到正确路由的页面都会进 `404`页面。
 
 ```ts
 /**

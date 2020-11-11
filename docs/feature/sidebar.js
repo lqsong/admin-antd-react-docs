@@ -6,7 +6,8 @@ module.exports = [
           children:[
             '/feature/component/tui-editor',
             '/feature/component/CKEditor',
-            '/feature/component/svg-icon',
+            '/feature/component/icon-svg',
+            '/feature/component/icon-font',
           ]
         },
         {

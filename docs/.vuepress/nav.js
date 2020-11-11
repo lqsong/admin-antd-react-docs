@@ -10,7 +10,8 @@ module.exports = [
 				items: [
 					{text: 'tui-editor', link: '/feature/component/tui-editor'},
 					{text: 'CKEditor', link: '/feature/component/CKEditor'},
-					{text: 'Svg Icon 图标', link: '/feature/component/svg-icon'}
+                    {text: 'IconSvg', link: '/feature/component/icon-svg'},
+                    {text: 'IconFont', link: '/feature/component/icon-font'}
 				]
             },
             {

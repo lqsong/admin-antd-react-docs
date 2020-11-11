@@ -16,7 +16,7 @@
 
 页面中的按钮可以通过[@/components/Permission](https://github.com/lqsong/admin-antd-react/tree/main/src/components/Permission) 组件验证权限进行是否展示。
 
-使用样例：[代码](https://github.com/lqsong/admin-antd-react/tree/main/src/pages/roles/all)
+使用样例：[代码](https://github.com/lqsong/admin-antd-react/tree/main/src/pages/roles/all)，[样例](http://demo.admin-antd-react.liqingsong.cc/#/roles/all)
 
 ```ts
 import Permission from '@/components/Permission';

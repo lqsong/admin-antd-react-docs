@@ -6,7 +6,7 @@
 
 `admin-antd-react` 内置了一个站点配置文件 `/config/settings.ts`。
 
-```javascript
+```ts
 export interface SettingsType {
   /**
    * 站点名称
@@ -73,7 +73,7 @@ export default settings;
 
 目前 `/config/routes.ts` 的内容为：
 
-```javascript
+```ts
 import { RoutesDataItem, umiRoutes,  getNotFoundRoute } from '../src/utils/routes';
 
 /**
@@ -166,7 +166,7 @@ API_HOST= /api
 
 2、在 `/config/config.ts` 文件中引用并配置，内容如下：
 
-```
+```ts
 const { API_HOST } = process.env;
 
 export default defineConfig({
@@ -178,7 +178,7 @@ export default defineConfig({
 
 3、因为本项目集成了 `TypeScript`, 所以你需要在 `/typings.d.ts` 文件中添加声明，内容如下：
 
-```
+```ts
 // api接口域名
 declare const API_HOST: string;
 ```
