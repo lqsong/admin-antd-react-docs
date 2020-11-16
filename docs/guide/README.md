@@ -80,10 +80,10 @@
 │   │   ├── iconsvg            # svg icons
 │   │   └── images             # 项目图片
 │   ├── components             # 全局公用组件
-│   ├── hooks                  # 全局 React hooks
 │   ├── config                 # 配置
 │   │   │── routes.ts          # 路由配置入口
 │   │   └── settings.ts        # 站点配置
+│   ├── hooks                  # 全局 React hooks
 │   ├── layout                 # 项目 layout
 │   │   ├── IndexLayout        # 项目默认主 Layout
 │   │   │   ├── components     # IndexLayout 公共组件

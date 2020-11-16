@@ -225,9 +225,9 @@ export const routes: RoutesDataItem[] = [
 
 ### 三、导入框架国际化
 
-`MemberLayout` 创建完成后，因为 `MemberLayout/routes.ts` 中配置参数 `title` 的需求，你需要把 `MemberLayout/locales` 下不同的语言文件导入 `/src/locales` 下对应的语言文件中。
+`MemberLayout` 创建完成后，因为 `MemberLayout/routes.ts` 中配置参数 `title` 的需求，你需要把 `MemberLayout/locales` 下不同的语言文件导入 `@/locales` 下对应的语言文件中。
 
-比如：`/src/locales/zh-CN.ts` 新增代码如下：
+比如：`@/locales/zh-CN.ts` 新增代码如下：
 
 ```ts
 import IndexLayoutLocales from '@/layouts/IndexLayout/locales/zh-CN';
@@ -245,7 +245,7 @@ export default {
 
 ```
 
->  `/src/locales/zh-TW.ts` 、`/src/locales/en-US.ts` 新增代码同理，如果自己新增了其他语言同理。
+>  `@/locales/zh-TW.ts` 、`@/locales/en-US.ts` 新增代码同理，如果自己新增了其他语言同理。
 
 :::tip 至此新增自定义Layout完成：
 使用方法与 `UserLayout` 、 `IndexLayout` 一致。

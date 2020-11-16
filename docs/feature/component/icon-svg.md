@@ -10,11 +10,11 @@
 
 ### 1、下载或制作svg文件
 
-存放到 `/src/assets/iconsvg` 目录下，自己可以对此目录下svg进行删减。
+存放到 `@/assets/iconsvg` 目录下，自己可以对此目录下svg进行删减。
 
 ### 2、压缩精简svg
 
-项目会根据 `/src/assets/iconsvg/svgo.yml` 配置自动压缩精简svg，也可以独立运行 `yarn svgo` 或 `npm run svgo` 压缩精简svg。
+项目会根据 `@/assets/iconsvg/svgo.yml` 配置自动压缩精简svg，也可以独立运行 `yarn svgo` 或 `npm run svgo` 压缩精简svg。
 
 ### 3、使用Demo：
 
