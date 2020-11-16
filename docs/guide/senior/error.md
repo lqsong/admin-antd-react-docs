@@ -21,7 +21,7 @@ export const getNotFoundRoute = (): RoutesDataItem => {
 ```
 
 ::: warning 注意事项
-`/config/settings.ts` 中配置 `notFoundComponent: '@/pages/404'` 参数设置404页面。
+`@/config/settings.ts` 中配置 `notFoundComponent: '@/pages/404'` 参数设置404页面。
 :::
 
 ## 请求

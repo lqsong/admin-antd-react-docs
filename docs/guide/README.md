@@ -71,10 +71,6 @@
 本项目已经为你生成了一个完整的开发框架，下面是整个项目的目录结构。
 
 ```bash
-├── config                     # 配置
-│   │── config.ts              # 配置入口
-│   │── routes.ts              # 路由配置入口
-│   └── settings.ts            # 站点配置
 ├── mock                       # Mock文件目录
 ├── public                     # 静态资源
 │   └──  favicon.ico           # favicon图标
@@ -85,6 +81,9 @@
 │   │   └── images             # 项目图片
 │   ├── components             # 全局公用组件
 │   ├── hooks                  # 全局 React hooks
+│   ├── config                 # 配置
+│   │   │── routes.ts          # 路由配置入口
+│   │   └── settings.ts        # 站点配置
 │   ├── layout                 # 项目 layout
 │   │   ├── IndexLayout        # 项目默认主 Layout
 │   │   │   ├── components     # IndexLayout 公共组件
@@ -134,6 +133,7 @@
 ├── .gitignore                 # babel-loader 配置
 ├── .prettierignore            # Prettier忽略文件配置
 ├── .prettierrc                # Prettier配置
+├── .umirc.ts                  # UmiJs配置
 ├── package.json               # 项目信息
 ├── README.md                  # readme
 ├── tsconfig.json              # TypeScript 配置

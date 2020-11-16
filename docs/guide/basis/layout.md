@@ -141,7 +141,7 @@ MemberLayout       # MemberLayout
 
 ### 二、导入框架路由
 
-`MemberLayout` 创建完成后，需要保证可以路由使用，所以就需要把 `MemberLayout/routes.ts` 导入 `/config/routes.ts` 中， `/config/routes.ts` 新增如下代码：
+`MemberLayout` 创建完成后，需要保证可以路由使用，所以就需要把 `MemberLayout/routes.ts` 导入 `@/config/routes.ts` 中， `@/config/routes.ts` 新增如下代码：
 
 ```ts
 import { RoutesDataItem, umiRoutes,  getNotFoundRoute } from '../src/utils/routes';

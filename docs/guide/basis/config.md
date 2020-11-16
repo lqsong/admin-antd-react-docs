@@ -4,7 +4,7 @@
 
 ## 站点配置
 
-`admin-antd-react` 内置了一个站点配置文件 `/config/settings.ts`。
+`admin-antd-react` 内置了一个站点配置文件 `@/config/settings.ts`。
 
 ```ts
 export interface SettingsType {
@@ -69,9 +69,9 @@ export default settings;
 
 ## 路由入口配置文件
 
-`admin-antd-react` 独立出了一个路由入口配置文件 `/config/routes.ts`，其目的主要是：统一引入`/src/layouts`下不同`layout`的路由，集中处理重新格式化路由。
+`admin-antd-react` 独立出了一个路由入口配置文件 `@/config/routes.ts`，其目的主要是：统一引入`/src/layouts`下不同`layout`的路由，集中处理重新格式化路由。
 
-目前 `/config/routes.ts` 的内容为：
+目前 `@/config/routes.ts` 的内容为：
 
 ```ts
 import { RoutesDataItem, umiRoutes,  getNotFoundRoute } from '../src/utils/routes';
@@ -138,7 +138,7 @@ export const routes: RoutesDataItem[] = [
 
 ## UmiJs 配置
 
-`admin-antd-react` 基于 `UmiJs`来进行构建，所以有个 UmiJs 配置文件 `/config/config.ts`。
+`admin-antd-react` 基于 `UmiJs`来进行构建，所以有个 UmiJs 配置文件 `.umirc.ts`。
 
 [官方文档](https://umijs.org/zh-CN/config)
 
@@ -164,7 +164,7 @@ PORT=8000
 API_HOST= /api
 ```
 
-2、在 `/config/config.ts` 文件中引用并配置，内容如下：
+2、在 `.umirc.ts` 文件中引用并配置，内容如下：
 
 ```ts
 const { API_HOST } = process.env;

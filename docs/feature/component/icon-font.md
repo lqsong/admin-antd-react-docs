@@ -14,7 +14,7 @@
 
 ### 2、配置js资源
 
-`/config/settings.ts` 文件中 `iconfontUrl`参数， 配置 iconfont.cn 生成的js文件地址。
+`@/config/settings.ts` 文件中 `iconfontUrl`参数， 配置 iconfont.cn 生成的js文件地址。
 
 ```ts
 const settings: SettingsType = {
