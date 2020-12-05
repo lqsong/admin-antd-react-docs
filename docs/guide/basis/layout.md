@@ -14,6 +14,7 @@ IndexLayout 采用的是 **Flex 布局**，`@/layouts/IndexLayout` 目录内容�
 ```bash
 IndexLayout        # 项目默认主 Layout
 ├── components     # IndexLayout 公共组件
+├── hooks          # IndexLayout React hooks
 ├── locales        # IndexLayout 国际化，主要为路由菜单
 ├── index.tsx      # IndexLayout 入口
 ├── routes.ts      # 使用 IndexLayout 的页面路由配置

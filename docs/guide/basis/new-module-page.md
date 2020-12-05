@@ -6,6 +6,7 @@
 pages                  # 页面组件目录(所有页面放在这里)
 └── home               # 页面-首页(这里作为说明样例)
     ├── components     # 当前页面组件目录(可选)
+    ├── hooks          # 当前页面React hooks(可选)
     ├── locales        # 当前页面国际化目录(可选)
     ├── data.d.ts      # TS 接口类型定义文件(可选)
     ├── index.tsx      # 当前页面入口

@@ -87,6 +87,7 @@
 │   ├── layout                 # 项目 layout
 │   │   ├── IndexLayout        # 项目默认主 Layout
 │   │   │   ├── components     # IndexLayout 公共组件
+│   │   │   ├── hooks          # IndexLayout React hooks
 │   │   │   ├── locales        # IndexLayout 国际化，主要为路由菜单
 │   │   │   ├── index.tsx      # IndexLayout 入口
 │   │   │   ├── routes.ts      # 使用 IndexLayout 的页面路由配置
@@ -117,6 +118,7 @@
 │   ├── pages                  # 页面组件目录(所有页面放在这里)
 │   │   └── home               # 页面-首页(这里作为说明样例)
 │   │       ├── components     # 当前页面组件目录(可选)
+│   │       ├── hooks          # 当前页面React hooks(可选)
 │   │       ├── locales        # 当前页面国际化目录(可选)
 │   │       ├── data.d.ts      # TS 接口类型定义文件(可选)
 │   │       ├── index.tsx      # 当前页面入口
@@ -185,7 +187,7 @@ npm run start
 
 ## 捐赠
 
-如果你觉得这个项目帮助到了你，你可以请作者喝咖啡表示鼓励.
+如果你觉得这个项目帮助到了你，请帮助 [![GitHub stars](https://img.shields.io/github/stars/lqsong/admin-antd-react.svg?style=social&label=Stars)](https://github.com/lqsong/admin-antd-react)，你也可以请作者喝咖啡表示鼓励 :coffee:
 
 **ALIPAY**             |  **WECHAT**
 :-------------------------:|:-------------------------:
