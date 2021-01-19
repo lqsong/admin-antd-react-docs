@@ -36,6 +36,9 @@ module.exports = [
 		items: [
             {text: 'admin-antd-vue', link: 'http://admin-antd-vue.liqingsong.cc'},
             {text: 'admin-element-vue', link: 'http://admin-element-vue.liqingsong.cc'},
+            {text: 'electron-admin-antd-vue', link: 'http://admin-antd-vue.liqingsong.cc/guide/senior/electron.html'},
+            {text: 'electron-admin-element-vue', link: 'http://admin-element-vue.liqingsong.cc/tsv2/guide/senior/electron.html'},
+            {text: 'electron-admin-antd-react', link: '/guide/senior/electron'},
         ]
     },
     {

@@ -152,7 +152,7 @@ git clone https://github.com/lqsong/admin-antd-react.git
 cd admin-antd-react
 
 # 复制文件
-copy .env  .env.local # 启用或修改里面的参数
+copy .env  .env.local # 启用修改里面的参数
 
 # 安装依赖，推荐使用 yarn 
 yarn 
