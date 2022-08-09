@@ -1,7 +1,8 @@
 module.exports = {
     title: 'admin-antd-react',
     description: 'Ant Design React Admin',
-    dest: './dist',
+    dest: './v1_umijs',
+    base: '/v1_umijs/',
     port: '8080',
     head: [
         ['link', {rel: 'icon', href: '/favicon.ico'}],
