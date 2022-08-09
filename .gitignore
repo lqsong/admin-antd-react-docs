@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+/v1_umijs
 
 package-lock.json
 yarn.lock
