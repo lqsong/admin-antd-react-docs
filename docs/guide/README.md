@@ -146,7 +146,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/lqsong/admin-antd-react.git
+git clone -b v1.0-umijs https://github.com/lqsong/admin-antd-react.git
 
 # 进入项目目录
 cd admin-antd-react
