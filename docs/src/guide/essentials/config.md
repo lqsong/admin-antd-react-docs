@@ -40,55 +40,99 @@ export default settings;
 
 ## 路由入口配置文件 {#router}
 
-`admin-antd-react-vite` 独立出了一个路由入口配置文件 `@/config/routes.ts`，其目的主要是：统一引入`@/layouts`下不同`layout`的路由，集中处理重新格式化路由。
+`admin-antd-react-vite` 独立出了一个路由入口配置文件 `@/config/routes.tsx`，其目的主要是：统一引入`@/layouts`下不同`layout`的路由，集中处理重新格式化路由。
 
-目前 `@/config/routes.ts` 的内容为：
+目前 `@/config/routes.tsx` 的内容为：
 
-```ts
+```tsx
 /**
  * 路由配置 入口
  * @author LiQingSong
  */
 
-import { lazy } from 'react';
-import { useRoutes } from 'react-router-dom';
-import { createUseRoutes } from '@/utils/router';
-import { IRouter } from '@/@types/router.d';
+import React, { lazy, memo, Suspense } from 'react';
+import { useLocation, useRoutes } from 'react-router-dom';
+import { createUseRoutes, pathKeyCreateUseRoutes } from '@/utils/router';
 
+import PageLoading from '@/components/PageLoading';
+
+// BlankLayout
+import BlankLayout from '@/layouts/BlankLayout';
+
+// SecurityLayout
 import SecurityLayout from '@/layouts/SecurityLayout';
 
+// UniversalLayout
 import UniversalLayoutRoutes from '@/layouts/UniversalLayout/routes';
 import UniversalLayout from '@/layouts/UniversalLayout';
 
+// UserLayout
 import UserLayoutRoutes from '@/layouts/UserLayout/routes';
 import UserLayout from '@/layouts/UserLayout';
 
-export const routes: IRouter[] = [
+/**
+ * 配置所有路由
+ */
+const routes = createUseRoutes([
   {
     path: '/',
-    component: SecurityLayout,
-    children: [
-      {
-        path: '/',
-        redirect: '/home',
-        component: UniversalLayout,
-        children: UniversalLayoutRoutes,
-      },
-    ],
+    redirect: '/home',
+    children: UniversalLayoutRoutes,
   },
   {
     path: '/user',
     redirect: '/user/login',
-    component: UserLayout,
     children: UserLayoutRoutes,
   },
   {
     path: '*',
     component: lazy(() => import('@/pages/404')),
   },
-];
+]);
 
-export default () => useRoutes(createUseRoutes(routes));
+/**
+ * 配置框架对应的路由
+ */
+const layoutToRoutes = {
+  UniversalLayout: pathKeyCreateUseRoutes([routes[0]]),
+  UserLayout: pathKeyCreateUseRoutes([routes[1]]),
+};
+
+export const SuspenseLazy = memo(({ children }: { children: React.ReactNode }) => (
+  <Suspense fallback={<PageLoading />}>{children}</Suspense>
+));
+
+export default memo(() => {
+  const routesElement = useRoutes(routes);
+  const location = useLocation();
+
+  // 属于 UniversalLayout
+  if (layoutToRoutes.UniversalLayout[location.pathname]) {
+    return (
+      <SecurityLayout>
+        <UniversalLayout>
+          <SuspenseLazy>{routesElement}</SuspenseLazy>
+        </UniversalLayout>
+      </SecurityLayout>
+    );
+  }
+
+  // 属于 UserLayout
+  if (layoutToRoutes.UserLayout[location.pathname]) {
+    return (
+      <UserLayout>
+        <SuspenseLazy>{routesElement}</SuspenseLazy>
+      </UserLayout>
+    );
+  }
+
+  // 默认 BlankLayout
+  return (
+    <BlankLayout>
+      <SuspenseLazy>{routesElement}</SuspenseLazy>
+    </BlankLayout>
+  );
+});
 
 ```
 

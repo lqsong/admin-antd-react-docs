@@ -161,7 +161,7 @@ export default universalLayoutRotes;
 
 ## 路由 {#router}
 
-本项目设计了一个路由入口配置文件 `@/config/routes.ts`，然后分别把路由拆分到了不同的`@/layouts`中去配置，这样做的原因：一是在入口文件方便集中处理重新格式化；二是模块化更规范。
+本项目设计了一个路由入口配置文件 `@/config/routes.tsx`，然后分别把路由拆分到了不同的`@/layouts`中去配置，这样做的原因：一是在入口文件方便集中处理重新格式化；二是模块化更规范。
 
 关于`UniversalLayout`具体的菜单动态判断会在 [权限验证](/guide/essentials/permission.md) 页面介绍。
 

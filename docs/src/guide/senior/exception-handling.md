@@ -3,26 +3,21 @@
 ## 页面 404 / 500 {#404-exce}
 
 
-```ts{22-29}
-// /@/config/routes.ts
+```tsx{17-24}
+// /@/config/routes.tsx
 
-export const routes: IRouter[] = [
+/**
+ * 配置所有路由
+ */
+const routes = createUseRoutes([
   {
     path: '/',
-    component: SecurityLayout,
-    children: [
-      {
-        path: '/',
-        redirect: '/home',
-        component: UniversalLayout,
-        children: UniversalLayoutRoutes,
-      },
-    ],
+    redirect: '/home',
+    children: UniversalLayoutRoutes,
   },
   {
     path: '/user',
     redirect: '/user/login',
-    component: UserLayout,
     children: UserLayoutRoutes,
   },
   {
@@ -33,8 +28,7 @@ export const routes: IRouter[] = [
     path: '*',
     component: lazy(() => import('@/pages/500')),
   },
-];
-
+]);
 ```
 
 ::: warning 注意事项

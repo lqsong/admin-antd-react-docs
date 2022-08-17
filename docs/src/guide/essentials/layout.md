@@ -129,42 +129,116 @@ MemberLayout       # MemberLayout
 
 ### 二、导入框架路由 {#cus-layout-router}
 
-`MemberLayout` 创建完成后，需要保证可以路由使用，所以就需要把 `MemberLayout/routes.ts` 导入 `@/config/routes.ts` 中， `@/config/routes.ts` 新增如下代码：
+`MemberLayout` 创建完成后，需要保证可以路由使用，所以就需要把 `MemberLayout/routes.ts` 导入 `@/config/routes.tsx` 中， `@/config/routes.tsx` 新增如下代码：
 
-```ts{1-2,23-28}
+```tsx{26-28,44-48,61,92-99}
+/**
+ * 路由配置 入口
+ * @author LiQingSong
+ */
+
+import React, { lazy, memo, Suspense } from 'react';
+import { useLocation, useRoutes } from 'react-router-dom';
+import { createUseRoutes, pathKeyCreateUseRoutes } from '@/utils/router';
+
+import PageLoading from '@/components/PageLoading';
+
+// BlankLayout
+import BlankLayout from '@/layouts/BlankLayout';
+
+// SecurityLayout
+import SecurityLayout from '@/layouts/SecurityLayout';
+
+// UniversalLayout
+import UniversalLayoutRoutes from '@/layouts/UniversalLayout/routes';
+import UniversalLayout from '@/layouts/UniversalLayout';
+
+// UserLayout
+import UserLayoutRoutes from '@/layouts/UserLayout/routes';
+import UserLayout from '@/layouts/UserLayout';
+
+// MemberLayout
 import MemberLayoutRoutes from '@/layouts/MemberLayout/routes';
 import MemberLayout from '@/layouts/MemberLayout';
 
-export const routes: IRouter[] = [
+/**
+ * 配置所有路由
+ */
+const routes = createUseRoutes([
   {
     path: '/',
-    component: SecurityLayout,
-    children: [
-      {
-        path: '/',
-        redirect: '/home',
-        component: UniversalLayout,
-        children: UniversalLayoutRoutes,
-      },
-    ],
+    redirect: '/home',
+    children: UniversalLayoutRoutes,
   },
   {
     path: '/user',
     redirect: '/user/login',
-    component: UserLayout,
     children: UserLayoutRoutes,
   },
   {
     path: '/member',
     redirect: '指定跳转需要访问的路由',
-    component: MemberLayout,
     children: MemberLayoutRoutes,
   },
   {
     path: '*',
     component: lazy(() => import('@/pages/404')),
   },
-];
+]);
+
+/**
+ * 配置框架对应的路由
+ */
+const layoutToRoutes = {
+  UniversalLayout: pathKeyCreateUseRoutes([routes[0]]),
+  UserLayout: pathKeyCreateUseRoutes([routes[1]]),
+  MemberLayout:  pathKeyCreateUseRoutes([routes[2]]),
+};
+
+export const SuspenseLazy = memo(({ children }: { children: React.ReactNode }) => (
+  <Suspense fallback={<PageLoading />}>{children}</Suspense>
+));
+
+export default memo(() => {
+  const routesElement = useRoutes(routes);
+  const location = useLocation();
+
+  // 属于 UniversalLayout
+  if (layoutToRoutes.UniversalLayout[location.pathname]) {
+    return (
+      <SecurityLayout>
+        <UniversalLayout>
+          <SuspenseLazy>{routesElement}</SuspenseLazy>
+        </UniversalLayout>
+      </SecurityLayout>
+    );
+  }
+
+  // 属于 UserLayout
+  if (layoutToRoutes.UserLayout[location.pathname]) {
+    return (
+      <UserLayout>
+        <SuspenseLazy>{routesElement}</SuspenseLazy>
+      </UserLayout>
+    );
+  }
+
+  // 属于 MemberLayout
+  if (layoutToRoutes.MemberLayout[location.pathname]) {
+    return (
+      <MemberLayout>
+        <SuspenseLazy>{routesElement}</SuspenseLazy>
+      </MemberLayout>
+    );
+  }
+
+  // 默认 BlankLayout
+  return (
+    <BlankLayout>
+      <SuspenseLazy>{routesElement}</SuspenseLazy>
+    </BlankLayout>
+  );
+});
 
 ```
 

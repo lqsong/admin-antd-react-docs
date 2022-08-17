@@ -50,7 +50,7 @@ pnpm dev
 │   │   └── images             # 项目图片
 │   ├── components             # 全局公用组件
 │   ├── config                 # 配置
-│   │   │── routes.ts          # 路由配置入口
+│   │   │── routes.tsx         # 路由配置入口
 │   │   └── settings.ts        # 站点配置
 │   ├── hooks                  # 全局 React hooks
 │   ├── layouts                # 项目 layout
